@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 240 10% 4%;
+    --foreground: 60 9% 92%;
+
+    --card: 240 8% 8%;
+    --card-foreground: 60 9% 92%;
+
+    --popover: 240 8% 8%;
+    --popover-foreground: 60 9% 92%;
+
+    --primary: 82 85% 55%;
+    --primary-foreground: 240 10% 4%;
+
+    --secondary: 240 6% 14%;
+    --secondary-foreground: 60 9% 92%;
+
+    --muted: 240 6% 14%;
+    --muted-foreground: 240 5% 50%;
+
+    --accent: 82 85% 55%;
+    --accent-foreground: 240 10% 4%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 6% 18%;
+    --input: 240 6% 18%;
+    --ring: 82 85% 55%;
+
+    --radius: 0.75rem;
+
+    --font-heading: 'Inter', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+
+    --sidebar-background: 240 8% 6%;
+    --sidebar-foreground: 60 9% 92%;
+    --sidebar-primary: 82 85% 55%;
+    --sidebar-primary-foreground: 240 10% 4%;
+    --sidebar-accent: 240 6% 14%;
+    --sidebar-accent-foreground: 60 9% 92%;
+    --sidebar-border: 240 6% 18%;
+    --sidebar-ring: 82 85% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-heading);
+  }
+
+  ::selection {
+    background: hsl(82 85% 55% / 0.3);
+  }
+}
+
+@layer utilities {
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(82 85% 70%));
+  }
+
+  .glow {
+    box-shadow: 0 0 40px -10px hsl(var(--primary) / 0.4);
+  }
+
+  .bento-card {
+    @apply bg-card border border-border rounded-2xl p-6 transition-all duration-500;
+  }
+
+  .bento-card:hover {
+    @apply border-primary/40;
+    box-shadow: 0 0 30px -10px hsl(var(--primary) / 0.2);
+  }
+}
